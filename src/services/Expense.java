@@ -11,7 +11,7 @@ public class Expense {
         String catExpense = sc.nextLine();
         System.out.println("Enter the frequency at which this expense is made: ");
         String freqExpense = sc.nextLine();
-
+        
 
     }
 }
