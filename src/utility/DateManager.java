@@ -1,4 +1,4 @@
-package utlility;
+package utility;
 import java.util.*;
 
 public class DateManager {
@@ -7,6 +7,7 @@ public class DateManager {
         Date d1 = new Date();
         System.out.println("The current date is: " +d1);
     }
+
 
     public static void main(String args[])
     {
