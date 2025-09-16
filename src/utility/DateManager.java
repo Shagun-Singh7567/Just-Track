@@ -2,16 +2,16 @@ package utility;
 import java.util.*;
 
 public class DateManager {
-    public void currentDateGetter()
+    public String currentDateGetter()
     {
         Date d1 = new Date();
-        System.out.println("The current date is: " +d1);
+        return d1.toString();
     }
 
 
     public static void main(String args[])
     {
         DateManager obj = new DateManager();
-        obj.currentDateGetter();
+        System.out.println(obj.currentDateGetter());
     }
 }
