@@ -13,7 +13,7 @@ public class Main {
         switch(choiceInput)
         {
             case 'T':
-                Transaction newTransaction = new Transaction();
+                Transaction.main(new String[] {}); 
 
             case 'I':
                 Income newIncomeRecord = new Income();
