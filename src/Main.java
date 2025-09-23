@@ -14,13 +14,22 @@ public class Main {
         {
             case 'T':
                 Transaction.main(new String[] {}); 
+                break;
 
             case 'I':
                 Income newIncomeRecord = new Income();
+                break;
 
             case 'E':
                 Expense newExpenseRecord = new Expense();
-        }
+                break;
+            default: 
+                System.out.println("Well, that didn't match anything so far, but you did just discover a secret feature!!!");
+                System.out.println("Here lies the key to solve all your personal budgeting problems in a quick excel file! Are you interested? (Y/N)");
+                char secretChoice = sc.next().charAt(0);
+                
+        }       
+
 
         
     }

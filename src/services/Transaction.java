@@ -14,7 +14,7 @@ public class Transaction {
         System.out.print("Enter the reason for which you withdrew this amount: ");
         String type = sc.nextLine();
         String date = "";
-        System.out.println("Was the transaction made today or before? (Y/N)");
+        System.out.println("Was the transaction made today or before? Press 'Y' if yes, otherwise type any other character");
         char ch = sc.nextLine().charAt(0);
         switch(ch)
         {
@@ -22,8 +22,9 @@ public class Transaction {
                 {
                     DateManager dt = new DateManager();
                     date = dt.currentDateGetter();
+                    break; // The absence of this small keyword caused a problem while execution, causing fall through condition!
                 }
-            case 'N':
+            default:
                 {
                     System.out.println("Enter the date please: ");
                     date = sc.nextLine();
@@ -31,7 +32,7 @@ public class Transaction {
         }
       
         System.out.println("Enter the category of transaction: ");
-        int category = sc.nextInt();
+        String category = sc.nextLine();
     }
     
 }
