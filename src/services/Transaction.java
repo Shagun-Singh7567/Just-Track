@@ -22,7 +22,19 @@ public class Transaction {
                 {
                     DateManager dt = new DateManager();
                     date = dt.currentDateGetter();
-                    break; // The absence of this small keyword caused a problem while execution, causing fall through condition!
+                    System.out.println("Is this the date today? (" + date + ") If we got it wrong, press N, otherwise press any other key to continue");
+                    char currentDateChoiceChecker = sc.nextLine().charAt(0);
+                    if(currentDateChoiceChecker == 'N')
+                    {
+                        System.out.println("Sorry, please enter the date manually");
+                        date = sc.nextLine();
+
+                    }
+                    else
+                    {
+                        break;
+                    }
+                  
                 }
             default:
                 {

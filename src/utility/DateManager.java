@@ -8,10 +8,10 @@ public class DateManager {
         return d1.toString();
     }
 
-
-    public static void main(String args[])
+    public void datePrinter()
     {
-        DateManager obj = new DateManager();
-        System.out.println(obj.currentDateGetter());
+        System.out.println(currentDateGetter());
     }
+
+
 }
