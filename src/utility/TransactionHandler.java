@@ -1,7 +1,9 @@
 package utility;
 
-public class TransactionHandler {
+import java.util.ArrayList;
 
+public class TransactionHandler {
+    ArrayList<String> transactionDetails = new ArrayList<String>();
     private int amt;
     private String ty;
     private int dat;
@@ -13,9 +15,14 @@ public class TransactionHandler {
         ty = type;
         dat = date;
         cat = category;
-    }
-    public static void main (String args[])
-    {
+        
+        transactionDetails.add(String.valueOf(amt));
+        transactionDetails.add(String.valueOf(ty));
+        transactionDetails.add(String.valueOf(dat));
+        transactionDetails.add(String.valueOf(cat));
+
+        
         
     }
+    
 }
