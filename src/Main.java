@@ -1,7 +1,8 @@
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 import services.*;
 public class Main {
-    public static void main(String args[])
+    public static void main(String args[]) throws FileNotFoundException
     {
         Scanner sc = new Scanner(System.in);
         System.out.println("Welcome to JustTrack - A simple budget tracker, made to help you be more financially responsible");
