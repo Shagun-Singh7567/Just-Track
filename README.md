@@ -11,3 +11,9 @@ Just Track - A simple budget tracker made in java, made to help you be more fina
         - DateManager
         - TransactionHandler
     - Main
+
+## To do
+- Shorten date format for convenience
+- Introduce CLI loop
+- Figure out branching
+- 
