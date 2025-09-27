@@ -11,6 +11,7 @@ public class ReceiptGenerator {
         PrintWriter printer = new PrintWriter("List_of_Transactions.csv");
         for(int i = 0; i < list.size(); i++)
         {
+            s = list.get(i);
             printer.write(s + ",");
             System.out.println("Your transaction has been saved successfully!");
         }
