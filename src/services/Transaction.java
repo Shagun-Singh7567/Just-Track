@@ -30,6 +30,7 @@ public class Transaction {
                     {
                         System.out.println("Sorry, please enter the date manually");
                         date = sc.nextLine();
+                        break;
 
                     }
                     else
