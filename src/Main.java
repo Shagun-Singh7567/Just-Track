@@ -25,7 +25,7 @@ public class Main {
                 break;
 
             case 'E':
-                Expense newExpenseRecord = new Expense();
+                Expense.main(new String[] {});
                 break;
             default: 
                 System.out.println("Well, that didn't match anything so far, but you did just discover a secret feature!!!");

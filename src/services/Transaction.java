@@ -46,7 +46,7 @@ public class Transaction {
                 }
         }
       
-        System.out.println("Enter the category of transaction: ");
+        System.out.print("Enter the category of transaction: ");
         String category = sc.nextLine();
         TransactionHandler obj = new TransactionHandler(amtWithdrawn,type,date,category);
     }

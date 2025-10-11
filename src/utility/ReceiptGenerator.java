@@ -13,8 +13,9 @@ public class ReceiptGenerator {
         {
             s = list.get(i);
             printer.write(s + ",");
-            System.out.println("Your transaction has been saved successfully!");
+            
         }
+        System.out.println("Your transaction has been saved successfully!");
         printer.close();
     }
 }
