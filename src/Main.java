@@ -21,7 +21,7 @@ public class Main {
                 break;
 
             case 'I':
-                Income newIncomeRecord = new Income();
+                Income.main(new String[] {});
                 break;
 
             case 'E':
