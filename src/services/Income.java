@@ -11,6 +11,7 @@ public class Income {
     int incomePerMonth = sc.nextInt();
     System.out.println("What's the source of this income?");
     String incomeSource = sc.nextLine();
+    sc.nextLine();
 
     IncomeHandler obj = new IncomeHandler(incomePerMonth, incomeSource);
     }
