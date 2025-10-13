@@ -8,14 +8,18 @@ public class Expense {
     {
         Scanner sc = new Scanner(System.in);
         System.out.println("Let's record an expense!");
-        System.out.println("Enter the amount of the expense: ");
-        int amtExpense = sc.nextInt();
         System.out.println("Enter the category for which this expense was made: ");
         String catExpense = sc.nextLine();
+        System.out.println("Enter the amount of the expense: ");
+        int amtExpense = sc.nextInt();
         sc.nextLine();
         System.out.println("Enter the frequency at which this expense is made: ");
         String freqExpense = sc.nextLine();
-        
         ExpenseHandler obj = new ExpenseHandler(amtExpense, catExpense, freqExpense);
+        System.out.println("Expense details are as follows: ");
+        for(int i = 0; i < obj.expenseDetails.size(); i++)
+        {
+            System.out.println(obj.expenseDetails.get(i));
+        }
     }
 }
