@@ -1,6 +1,6 @@
 package utility;
 
-import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class TransactionHandler {
@@ -10,7 +10,7 @@ public class TransactionHandler {
     private String dat;
     private String cat;
 
-    public TransactionHandler(int amtWithdrawn, String type, String date, String category) throws FileNotFoundException
+    public TransactionHandler(int amtWithdrawn, String type, String date, String category) throws IOException
     {
         amt = amtWithdrawn;
         ty = type;
@@ -22,8 +22,7 @@ public class TransactionHandler {
         transactionDetails.add(String.valueOf(dat));
         transactionDetails.add(String.valueOf(cat));
 
-        ReceiptGenerator obj = new ReceiptGenerator();
-        obj.generateTransactionReceipt(transactionDetails);
+       ReceiptGenerator.main(transactionDetails);
         
     }
     

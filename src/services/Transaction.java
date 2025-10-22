@@ -1,12 +1,12 @@
 package services;
-import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 import utility.DateManager;
 import utility.TransactionHandler;
 public class Transaction {
 
-    public static void main(String args[]) throws FileNotFoundException
+    public static void main(String args[]) throws IOException
     {
         Scanner sc = new Scanner(System.in);
         System.out.println("Let's add a transaction you made!");
