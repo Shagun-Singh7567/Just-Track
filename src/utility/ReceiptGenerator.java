@@ -16,7 +16,7 @@ public class ReceiptGenerator {
         for(int i = 0; i < list.size(); i++)
         {
             s = list.get(i);
-            bw.write(s);
+            bw.write(s + ",");
             
         }
         bw.newLine();
