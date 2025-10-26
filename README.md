@@ -12,8 +12,7 @@ Just Track - A simple budget tracker made in java, made to help you be more fina
         - TransactionHandler
     - Main
 
-## To do
-- Shorten date format for convenience
-- Introduce CLI loop
-- Figure out branching
-- 
+## To do (features) 
+- Integrate crude form of voice input for data input
+- Enable a form of login and user system
+- Use basic data visualization either by importing python libraries or ASCII in terminal
