@@ -28,9 +28,8 @@ public class Main {
                 Expense.main(new String[] {});
                 break;
             default: 
-                System.out.println("Well, that didn't match anything so far, but you did just discover a secret feature!!!");
-                System.out.println("Here lies the key to solve all your personal budgeting problems in a quick excel file! Are you interested? (Y/N)");
-                char secretChoice = sc.next().charAt(0);
+                System.out.println("Well, that didn't match any of the available services, can you please try again?");
+                
                 
         } 
         System.out.println("Thank you for using our app! Would you like to use another service? (Y/N)");
