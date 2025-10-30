@@ -1,6 +1,7 @@
 package utility;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class ExpenseHandler {
@@ -9,7 +10,7 @@ public class ExpenseHandler {
     private String cat;
     private String freq;
 
-    public ExpenseHandler(int amtExpense, String catExpense, String freqExpense) throws FileNotFoundException
+    public ExpenseHandler(int amtExpense, String catExpense, String freqExpense) throws IOException
     {
         amt = amtExpense;
         cat = catExpense;
@@ -18,7 +19,8 @@ public class ExpenseHandler {
         expenseDetails.add(String.valueOf(cat));
         expenseDetails.add(String.valueOf(freq));
         
-        
+        String str = "Expenses-details.csv";
+       ReceiptGenerator.main(expenseDetails, str);
     }
     
 }

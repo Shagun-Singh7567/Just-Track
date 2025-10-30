@@ -1,10 +1,11 @@
 package services;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.*;
 
 import utility.ExpenseHandler;
 public class Expense {
-    public static void main(String args[]) throws FileNotFoundException
+    public static void main(String args[]) throws IOException
     {
         Scanner sc = new Scanner(System.in);
         System.out.println("Let's record an expense!");

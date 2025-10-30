@@ -22,7 +22,8 @@ public class TransactionHandler {
         transactionDetails.add(String.valueOf(dat));
         transactionDetails.add(String.valueOf(cat));
 
-       ReceiptGenerator.main(transactionDetails);
+        String str = "Transactions.csv";
+       ReceiptGenerator.main(transactionDetails, str);
         
     }
     

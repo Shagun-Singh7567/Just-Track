@@ -1,9 +1,10 @@
 package services;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.*;
 import utility.IncomeHandler;
 public class Income {
-    public static void main(String args[]) throws FileNotFoundException
+    public static void main(String args[]) throws IOException
     {
     Scanner sc = new Scanner(System.in);
     System.out.println("Let's record your income!");
