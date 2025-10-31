@@ -1,5 +1,4 @@
 package services;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.*;
 
@@ -18,9 +17,6 @@ public class Expense {
         String freqExpense = sc.nextLine();
         ExpenseHandler obj = new ExpenseHandler(amtExpense, catExpense, freqExpense);
         System.out.println("Expense details are as follows: ");
-        for(int i = 0; i < obj.expenseDetails.size(); i++)
-        {
-            System.out.println(obj.expenseDetails.get(i));
-        }
+    
     }
 }
