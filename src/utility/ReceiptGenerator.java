@@ -22,7 +22,7 @@ public void CSVMaker (ArrayList<String> list, String str) throws IOException
     }
     bw.newLine();
     bw.close();
-    System.out.println("Your transaction has been saved successfully!");
+    System.out.println("Your data has been saved successfully!");
 }
 
     public static void main(ArrayList<String> list,String str) throws IOException

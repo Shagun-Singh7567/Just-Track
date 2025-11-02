@@ -16,7 +16,7 @@ public class Expense {
         System.out.println("Enter the frequency at which this expense is made: ");
         String freqExpense = sc.nextLine();
         ExpenseHandler obj = new ExpenseHandler(amtExpense, catExpense, freqExpense);
-        System.out.println("Expense details are as follows: ");
+       
     
     }
 }
