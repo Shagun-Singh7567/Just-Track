@@ -5,9 +5,9 @@ public class AuthManager {
     public void signUp()
     {
        System.out.println("Let's create your account!");
-       String username = "";
+       String username = "already_taken_username";
        String password = "";
-       while(usernameValidator(username))
+       while(usernameValidator(username) == false)
        {
        System.out.println("Enter a username: ");
        username = sc.nextLine();
@@ -17,7 +17,7 @@ public class AuthManager {
        System.out.println("Enter your password: ");
        password = sc.nextLine();
        }
-       while(passwordValidator(password));
+       while(passwordValidator(password) == false);
        password = hash(password);
        
     }
@@ -91,9 +91,11 @@ public class AuthManager {
         return true;
     }
 
-    public static void main(String args[])
-    {
-        AuthManager obj = new AuthManager();
-        obj.signUp();
-    }
+    // Main method for testing purposes
+    // public static void main(String args[])
+    // {
+    //     AuthManager obj = new AuthManager();
+    //     obj.signUp();
+
+    // }
 }
