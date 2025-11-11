@@ -3,6 +3,8 @@ Just Track - A simple budget tracker made in java, made to help you be more fina
 
 ## Folder structure
 - src
+    - auth
+        - AuthManager
     - services
         - Expense (Main calls this class when an expense is to be recorded)
         - Income (Main calls this class when a source of income is to be recorded)
@@ -14,7 +16,7 @@ Just Track - A simple budget tracker made in java, made to help you be more fina
         - IncomeHandler
         - ReceiptGenerator (Creates CSV file for data stored in ArrayList)
     - Main
-    - AuthManager
+
 
 ## What I learned through this project so far
 ### Object Oriented Programming (OOPS) concepts in java
@@ -29,7 +31,11 @@ The same manual way is used if the transaction was not made on the same day.
 The date is also formatted using basic substring method, so that the entire complex format is not given, but only the basic date value is printed, instead of the entire String that the Date object is converted into.
 
 ### File Handling
+To enable data storage at a basic level, I used the FileWriter and BufferWriter classes in java to enable the data provided by the user to be stored in a csv file. The comma seperated format makes it easy for the formatting to be done line by line. 
 
+Earlier, I tried using the PrintWriter class for this purpose. However, this prevented the csv file to be persistent, and store the data permanently. 
+
+This experience of working with the different classes which enable file handling helped me form a fundamental understanding of how input and output works in java. 
 
 ## To do (features) 
 - Integrate crude form of voice input for data input
