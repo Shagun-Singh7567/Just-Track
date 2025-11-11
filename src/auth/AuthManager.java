@@ -1,3 +1,4 @@
+package auth;
 import java.util.Scanner;
 
 public class AuthManager {

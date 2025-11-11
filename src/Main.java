@@ -1,6 +1,7 @@
 import java.io.IOException;
 import java.util.Scanner;
 import services.*;
+import auth.*;
 public class Main {
     public static void main(String args[]) throws IOException
     {
@@ -9,6 +10,24 @@ public class Main {
         while(isRunning)
         {
         System.out.println("Welcome to JustTrack - A simple budget tracker, made to help you be more financially responsible");
+        System.out.println("Please press 1 to sign up to create a new account, and 2 to log in. Press 3 if you wish to leave");
+        int c = sc.nextInt();
+        switch(c)
+        {
+            case 1:
+                AuthManager ob1 = new AuthManager();
+                ob1.signUp();
+                break;
+
+            case 2:
+                AuthManager ob2 = new AuthManager();
+                ob2.login();
+                break;
+            
+            default:
+                System.out.println("Thank you for using our app!");
+                System.exit(0);
+        }
         System.out.println("Press the specific letters in the terminal to perform the interaction you wish to perform: ");
         System.out.println("To make a transaction, press T");
         System.out.println("To record your income, press I");
