@@ -37,6 +37,13 @@ Earlier, I tried using the PrintWriter class for this purpose. However, this pre
 
 This experience of working with the different classes which enable file handling helped me form a fundamental understanding of how input and output works in java. 
 
+
+### Connection to MySQL Database and using JDBC 
+To enable a proper user authentication system, I plan to expand my database using MySQL, which I'm curently learning to work with. For the meantime, there are placeholder methods that don't do much except handle passwords and work with user input, but this is going to be expanded on soon.
+
+### Password handling
+As quoted by this amazing video (https://www.youtube.com/watch?v=8ZtInClXe1Q&t=146s) I found on password storing by Computerphile, one should ideally NEVER store passwords, which is a flaw I acknowledge in my app currently. However, intead of plain text storing, I plan on using an SHA-256 algorithm, which is handled by predefined classes in java to store the string as a byte array and then process it through 64 rounds of operations, finally producing a 256-bit hash. Currently, the plan is to use MessageDigest to hash the data securely to produce a 64-character irreversible fingerprint to store the password.
+
 ## To do (features) 
 - Integrate crude form of voice input for data input
 - Enable a form of login and user system
