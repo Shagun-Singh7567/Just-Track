@@ -19,7 +19,6 @@ Just Track - A simple budget tracker made in java, made to help you be more fina
 
 
 ## What I learned through this project so far
-### Object Oriented Programming (OOPS) concepts in java
 
 ### Date class in java
 Java's DateHandler class how I implemented dates which can be called every time a transaction is made, so that instead of inputting the date manually, if the transaction was made on the same day, the system date is automatically obtained.
@@ -44,7 +43,3 @@ To enable a proper user authentication system, I plan to expand my database usin
 ### Password handling
 As quoted by this amazing video (https://www.youtube.com/watch?v=8ZtInClXe1Q&t=146s) I found on password storing by Computerphile, one should ideally NEVER store passwords, which is a flaw I acknowledge in my app currently. However, intead of plain text storing, I plan on using an SHA-256 algorithm, which is handled by predefined classes in java to store the string as a byte array and then process it through 64 rounds of operations, finally producing a 256-bit hash. Currently, the plan is to use MessageDigest to hash the data securely to produce a 64-character irreversible fingerprint to store the password.
 
-## To do (features) 
-- Integrate crude form of voice input for data input
-- Enable a form of login and user system
-- Use basic data visualization either by importing python libraries or ASCII in terminal
