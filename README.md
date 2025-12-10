@@ -43,3 +43,5 @@ To enable a proper user authentication system, I plan to expand my database usin
 ### Password handling
 As quoted by this amazing video (https://www.youtube.com/watch?v=8ZtInClXe1Q&t=146s) I found on password storing by Computerphile, one should ideally NEVER store passwords, which is a flaw I acknowledge in my app currently. However, intead of plain text storing, I plan on using an SHA-256 algorithm, which is handled by predefined classes in java to store the string as a byte array and then process it through 64 rounds of operations, finally producing a 256-bit hash. Currently, the plan is to use MessageDigest to hash the data securely to produce a 64-character irreversible fingerprint to store the password.
 
+### User Authentication
+I also wish to implement a basic user authentication system using basic classes to allow multiple users to create multiple accounts on the same device.
