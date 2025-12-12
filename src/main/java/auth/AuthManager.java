@@ -1,5 +1,8 @@
 package auth;
+
+import java.util.Properties;
 import java.util.Scanner;
+import java.sql.*;
 
 public class AuthManager {
     Scanner sc = new Scanner(System.in);
@@ -92,11 +95,24 @@ public class AuthManager {
         return true;
     }
 
-    // Main method for testing purposes
-    // public static void main(String args[])
-    // {
-    //     AuthManager obj = new AuthManager();
-    //     obj.signUp();
+    public static void main(String args[])
+    {
+        try {
+            String url = "jdbc:mysql://localhost:3306/just_track_db";
+            Properties info = new Properties();
+            info.put("user", "root");
+            info.put("password", "root");
+            Connection dbConnection;
+            dbConnection = DriverManager.getConnection(url, info);
+      
+            if (dbConnection != null) {
+              System.out.println("Successfully connected to MySQL database");
+            }
+      
+          } catch (SQLException ex) {
+            System.out.println("An error occurred while connecting MySQL databse");
+            ex.printStackTrace();
+          }
 
-    // }
+    }
 }
