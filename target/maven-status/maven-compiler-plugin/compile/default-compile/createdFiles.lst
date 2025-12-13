@@ -1,5 +1,7 @@
 auth\AuthManager.class
+Main.class
 services\Expense.class
+utility\passwordHandler.class
 services\Transaction.class
 services\Income.class
 utility\TransactionHandler.class

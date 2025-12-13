@@ -1,15 +1,16 @@
 package auth;
 
-import java.util.Properties;
 import java.util.Scanner;
+import utility.passwordHandler;
 import java.sql.*;
 
 public class AuthManager {
     Scanner sc = new Scanner(System.in);
     public void signUp()
     {
+       passwordHandler pObj = new passwordHandler(); 
        System.out.println("Let's create your account!");
-       String username = "already_taken_username";
+       String username = "";
        String password = "";
        while(usernameValidator(username) == false)
        {
@@ -21,8 +22,10 @@ public class AuthManager {
        System.out.println("Enter your password: ");
        password = sc.nextLine();
        }
-       while(passwordValidator(password) == false);
-       password = hash(password);
+       while(pObj.passwordValidator(password) == false);
+       password = pObj.hash(password);
+
+        System.out.println(username + " "  + password);
        
     }
 
@@ -31,10 +34,7 @@ public class AuthManager {
 
     }
 
-    private String hash(String pass)
-    {
-        return "";
-    }
+    
 
     boolean usernameValidator(String uname)
     {
@@ -51,63 +51,19 @@ public class AuthManager {
         }
     }
 
-    boolean passwordValidator(String pass)
-    {
-        boolean upperCase = false;
-        boolean lowerCase = false;
-        boolean digit = false;
-        boolean specialCharacter = false;
-        if(pass.length() < 8 || pass.length() > 15) // Password length
-        {
-        System.out.println("Please maintain password length between 8 and 15");
-        return false;
-        }
-        
-        for(int i = 0; i < pass.length(); i++)
-        {
-        char ch = pass.charAt(i);
-        
-        if(Character.isWhitespace(ch))
-            {
-            System.out.println("Passwords can't contain empty spaces!");
-            return false;
-            }
-        
-        if(Character.isUpperCase(ch))
-        upperCase = true;
 
-        if(Character.isLowerCase(ch))
-        lowerCase = true;
-
-        if(Character.isDigit(ch))
-        digit = true;
-
-        if(Character.isLetterOrDigit(ch) == false)
-        specialCharacter = true;
-
-        }
-
-        if(upperCase == false || lowerCase == false || digit == false || specialCharacter == false)
-        {
-            System.out.println("You are missing either/all of the following: an upper case letter, a lower case letter, a digit, or a special character. Please try again");
-        }
-
-        return true;
-    }
 
     public static void main(String args[])
     {
         try {
             String url = "jdbc:mysql://localhost:3306/just_track_db";
-            Properties info = new Properties();
-            info.put("user", "root");
-            info.put("password", "root");
-            Connection dbConnection;
-            dbConnection = DriverManager.getConnection(url, info);
+            Connection dbConnection = DriverManager.getConnection(url, "root","root");
       
-            if (dbConnection != null) {
-              System.out.println("Successfully connected to MySQL database");
-            }
+            Statement st = dbConnection.createStatement();
+            
+            System.out.println("Hallo");
+
+
       
           } catch (SQLException ex) {
             System.out.println("An error occurred while connecting MySQL databse");
