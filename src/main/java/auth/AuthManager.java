@@ -5,11 +5,10 @@ import utility.passwordHandler;
 import java.sql.*;
 
 public class AuthManager {
-    Scanner sc = new Scanner(System.in);
-    public void signUp()
+    static Scanner sc = new Scanner(System.in);
+    public String[] signUp()
     {
        passwordHandler pObj = new passwordHandler(); 
-       System.out.println("Let's create your account!");
        String username = "";
        String password = "";
        while(usernameValidator(username) == false)
@@ -24,9 +23,9 @@ public class AuthManager {
        }
        while(pObj.passwordValidator(password) == false);
        password = pObj.hash(password);
-
-        System.out.println(username + " "  + password);
        
+        String[] signUpDetails = {username, password};
+        return signUpDetails;
     }
 
     public void login()
@@ -56,12 +55,37 @@ public class AuthManager {
     public static void main(String args[])
     {
         try {
+            AuthManager obj = new AuthManager();
             String url = "jdbc:mysql://localhost:3306/just_track_db";
             Connection dbConnection = DriverManager.getConnection(url, "root","root");
       
             Statement st = dbConnection.createStatement();
             
-            System.out.println("Hallo");
+            String createTableQuery = "create table if not exists USERS (id int primary key auto_increment, username varchar(100) , password varchar(64))";
+            st.execute(createTableQuery);
+           
+            System.out.println("Press 1 to sign up, 2 to login to an existing account");
+            char ch = sc.nextLine().charAt(0);
+            switch (ch)
+            {
+                case '1':
+                System.out.println("Let's create your account!");
+                String[] signUpDetails = obj.signUp();
+
+                String insertUsernameQuery = "insert into USERS (username) value (?)";
+                PreparedStatement psUsername = dbConnection.prepareStatement(insertUsernameQuery);
+                psUsername.setString(1, signUpDetails[0]);
+                psUsername.execute();
+
+                String insertPasswordQuery = "insert into USERS (username) value (?)";
+                PreparedStatement psPassword = dbConnection.prepareStatement(insertPasswordQuery);
+                psPassword.setString(1, signUpDetails[1]);
+                psPassword.execute();
+
+                case '2':
+                obj.login();
+
+            } 
 
 
       
