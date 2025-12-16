@@ -11,11 +11,13 @@ public class AuthManager {
        passwordHandler pObj = new passwordHandler(); 
        String username = "";
        String password = "";
-       while(usernameValidator(username) == false)
+       do
        {
-       System.out.println("Enter a username: ");
-       username = sc.nextLine();
+        System.out.println("Enter a username: ");
+        username = sc.nextLine();
        }
+       while(usernameValidator(username) == false);
+
        do
        {
        System.out.println("Enter your password: ");
@@ -64,6 +66,9 @@ public class AuthManager {
             String createTableQuery = "create table if not exists USERS (id int primary key auto_increment, username varchar(100) , password varchar(64))";
             st.execute(createTableQuery);
            
+
+            st.execute("delete from USERS");
+
             System.out.println("Press 1 to sign up, 2 to login to an existing account");
             char ch = sc.nextLine().charAt(0);
             switch (ch)
@@ -72,15 +77,11 @@ public class AuthManager {
                 System.out.println("Let's create your account!");
                 String[] signUpDetails = obj.signUp();
 
-                String insertUsernameQuery = "insert into USERS (username) value (?)";
-                PreparedStatement psUsername = dbConnection.prepareStatement(insertUsernameQuery);
-                psUsername.setString(1, signUpDetails[0]);
-                psUsername.execute();
-
-                String insertPasswordQuery = "insert into USERS (username) value (?)";
-                PreparedStatement psPassword = dbConnection.prepareStatement(insertPasswordQuery);
-                psPassword.setString(1, signUpDetails[1]);
-                psPassword.execute();
+                String insertUserQuery = "INSERT INTO USERS (username, password) VALUES (?, ?)";
+                PreparedStatement ps = dbConnection.prepareStatement(insertUserQuery);
+                ps.setString(1, signUpDetails[0]);
+                ps.setString(2, signUpDetails[1]);
+                ps.execute();
 
                 case '2':
                 obj.login();
