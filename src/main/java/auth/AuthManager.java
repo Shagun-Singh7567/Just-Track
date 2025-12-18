@@ -5,10 +5,10 @@ import utility.passwordHandler;
 import java.sql.*;
 
 public class AuthManager {
+    passwordHandler pObj = new passwordHandler(); 
     static Scanner sc = new Scanner(System.in);
     public String[] signUp()
     {
-       passwordHandler pObj = new passwordHandler(); 
        String username = "";
        String password = "";
        do
@@ -30,9 +30,16 @@ public class AuthManager {
         return signUpDetails;
     }
 
-    public void login()
+    public String[] login()
     {
+        System.out.println("Enter your username");
+        String inputUsername = sc.nextLine();
+        System.out.println("Enter your password");
+        String inputPassword = sc.nextLine();
+        inputPassword = pObj.hash(inputPassword);
 
+        String[] userDetails = {inputUsername, inputPassword};
+        return userDetails;
     }
 
     
@@ -54,14 +61,13 @@ public class AuthManager {
 
 
 
-    public static void main(String args[])
+    public static void main(String args[]) throws SQLException
     {
-        try {
+       
             AuthManager obj = new AuthManager();
-            String url = "jdbc:mysql://localhost:3306/just_track_db";
-            Connection dbConnection = DriverManager.getConnection(url, "root","root");
+            Connection conn = DBManager.getConnection();
       
-            Statement st = dbConnection.createStatement();
+            Statement st = conn.createStatement();
             
             String createTableQuery = "create table if not exists USERS (id int primary key auto_increment, username varchar(100) , password varchar(64))";
             st.execute(createTableQuery);
@@ -78,22 +84,21 @@ public class AuthManager {
                 String[] signUpDetails = obj.signUp();
 
                 String insertUserQuery = "INSERT INTO USERS (username, password) VALUES (?, ?)";
-                PreparedStatement ps = dbConnection.prepareStatement(insertUserQuery);
+                PreparedStatement ps = conn.prepareStatement(insertUserQuery);
                 ps.setString(1, signUpDetails[0]);
                 ps.setString(2, signUpDetails[1]);
                 ps.execute();
 
                 case '2':
                 obj.login();
+                String[] loginDetails = obj.login();
+
+                String checkUserQuery = "";
 
             } 
 
 
       
-          } catch (SQLException ex) {
-            System.out.println("An error occurred while connecting MySQL databse");
-            ex.printStackTrace();
-          }
+          } 
 
     }
-}
