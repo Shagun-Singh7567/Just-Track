@@ -45,3 +45,6 @@ As quoted by this amazing video (https://www.youtube.com/watch?v=8ZtInClXe1Q&t=1
 
 ### User Authentication
 I also wish to implement a basic user authentication system using basic classes to allow multiple users to create multiple accounts on the same device.
+
+## My experience refactoring code
+This is my first time working on a project which requires clear distinction between the several layers, for which I plan to refactor my original idea to a cleaner codebase which is easier to read and add to. Furthurmore, this will enable me to potentially upgrade the project into a full CRUD-based app using Spring boot later in my learning journey. 
