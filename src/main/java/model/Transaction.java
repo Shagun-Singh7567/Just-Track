@@ -4,11 +4,11 @@ public class Transaction {
     private String id = "";
     private String userId = "";
     private double amt = 0.0;
-    private String type = "";
+    private TransactionType type;
     private String date = "";
     private String note = "";
 
-    public Transaction(String id, String userId, double amt, String type, String date, String note)
+    public Transaction(String id, String userId, double amt, TransactionType type, String date, String note)
     {
         id = this.id;
         userId = this.userId;
@@ -19,7 +19,7 @@ public class Transaction {
     }
 
     // Overloaded constructor for when object is created at the time of user input
-    public Transaction(String id, double amt, String type, String date, String note)
+    public Transaction(String id, double amt, TransactionType type, String date, String note)
     {
         id = this.id;
         amt = this.amt;
@@ -59,12 +59,12 @@ public class Transaction {
         amt = Amount;
     }
 
-    public String getType()
+    public TransactionType getType()
     {
         return type;
     }
 
-    public void setType(String Type)
+    public void setType(TransactionType Type)
     {
         type = Type;
     }
