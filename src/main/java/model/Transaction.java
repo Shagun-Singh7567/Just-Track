@@ -1,31 +1,32 @@
 package model;
 
+import java.sql.Timestamp;
+import java.util.Date;
+
 public class Transaction {
     private String id = "";
     private String userId = "";
     private double amt = 0.0;
     private TransactionType type;
-    private String date = "";
+    private Timestamp date;
     private String note = "";
 
-    public Transaction(String id, String userId, double amt, TransactionType type, String date, String note)
+    public Transaction(String id, String userId, double amt, TransactionType type, String note)
     {
-        id = this.id;
-        userId = this.userId;
-        amt = this.amt;
-        type = this.type;
-        date = this.date;
-        note = this.note;
+        this.id = id;
+        this.userId = userId;
+        this.amt = amt;
+        this.type = type;
+        this.note = note;
     }
 
     // Overloaded constructor for when object is created at the time of user input
-    public Transaction(String id, double amt, TransactionType type, String date, String note)
+    public Transaction(String id, double amt, TransactionType type, String note)
     {
-        id = this.id;
-        amt = this.amt;
-        type = this.type;
-        date = this.date;
-        note = this.note;
+        this.id = id;
+        this.amt = amt;
+        this.type = type;
+        this.note = note;
     }
 
 
@@ -69,14 +70,14 @@ public class Transaction {
         type = Type;
     }
 
-    public String getDate()
+    public Timestamp getDate()
     {
         return date;
     }
 
-    public void setDate(String Date)
+    public void setDate(Date date)
     {
-        date = Date;
+        this.date = new Timestamp(date.getTime());
     }
 
     public String getNote()
