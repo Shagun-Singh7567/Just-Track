@@ -1,6 +1,6 @@
 package model;
 
-enum TransactionType {
+public enum TransactionType {
     INCOME,
     EXPENSE
 }
