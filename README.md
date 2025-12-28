@@ -14,10 +14,14 @@ Please note: While this project is being refactored, a lot of the past structure
             - TransactionType.java (enum to definite transaction types)
         - service
             - TransactionService.model
+        - MainApp.java
         
     
 ## My experience refactoring code
 This is my first time working on a project which requires clear distinction between the several layers, for which I plan to refactor my original idea to a cleaner codebase which is easier to read and add to. Furthurmore, this will enable me to potentially upgrade the project into a full CRUD-based app using Spring boot later in my learning journey.
+
+I planned to refactor mainly since I saw it as a great opportunity to learn how to write better structured code, which would be comparitively easier to read
+
 
 ## What I learned through this project so far
 
