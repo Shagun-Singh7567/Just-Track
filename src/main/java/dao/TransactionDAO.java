@@ -15,7 +15,7 @@ public class TransactionDAO {
         }
     }
 
-    void add(Transaction tr) throws SQLException
+    public static void add(Transaction tr) throws SQLException
     {
         String addRecordQuery = "insert into TRANSACTIONS (id, user_id, amt, type, transaction_date, note) values (?, ?, ?, ?, ?, ?)";
 
