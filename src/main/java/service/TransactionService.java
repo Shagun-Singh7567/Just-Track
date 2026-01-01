@@ -2,12 +2,14 @@ package service;
 
 import java.sql.SQLException;
 
+import java.sql.Timestamp;
+
 import dao.TransactionDAO;
 import model.Transaction;
 import model.TransactionType;
 
 public class TransactionService {
-    void add(String id, double amt, char t, String note)
+    public static void add(String id, String uId, double amt, char t, String note)
     {
         if(amt < 0)
         {
@@ -21,8 +23,13 @@ public class TransactionService {
         else
         type = TransactionType.EXPENSE;
         
-        Transaction tr = new Transaction(id, amt, type, note);
+        Timestamp ts = new Timestamp(System.currentTimeMillis());
+
+
+        Transaction tr = new Transaction(id, uId, amt, type, ts, note);
         try {
+            TransactionDAO.createTable();
+            System.out.println("Table created");
             TransactionDAO.add(tr);
             System.out.println("Transaction saved");
         } catch (SQLException e) {

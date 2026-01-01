@@ -11,21 +11,23 @@ public class Transaction {
     private Timestamp date;
     private String note = "";
 
-    public Transaction(String id, String userId, double amt, TransactionType type, String note)
+    public Transaction(String id, String userId, double amt, TransactionType type, Timestamp date, String note)
     {
         this.id = id;
         this.userId = userId;
         this.amt = amt;
         this.type = type;
+        this.date = date;
         this.note = note;
     }
 
     // Overloaded constructor for when object is created at the time of user input
-    public Transaction(String id, double amt, TransactionType type, String note)
+    public Transaction(String id, double amt, TransactionType type, Timestamp date, String note)
     {
         this.id = id;
         this.amt = amt;
         this.type = type;
+        this.date = date;
         this.note = note;
     }
 
@@ -75,9 +77,9 @@ public class Transaction {
         return date;
     }
 
-    public void setDate(Date date)
+    public void setDate(Timestamp date)
     {
-        this.date = new Timestamp(date.getTime());
+        this.date = date;
     }
 
     public String getNote()

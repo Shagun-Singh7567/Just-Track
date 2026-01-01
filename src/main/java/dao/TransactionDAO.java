@@ -6,7 +6,7 @@ import db.DatabaseConnection;
 import model.Transaction;
 
 public class TransactionDAO {
-    void createTable() throws SQLException
+    public static void createTable() throws SQLException
     {
         String createTableQuery = "create table if not exists TRANSACTIONS (id char(36) primary key, user_id varchar(100) not null, amt decimal(10,2) not null, type enum('INCOME', 'EXPENSE') not null, transaction_date timestamp not null, note varchar(500))";
         try (Connection conn = DatabaseConnection.getConnection();
@@ -21,6 +21,14 @@ public class TransactionDAO {
 
         try (Connection conn = DatabaseConnection.getConnection();
         PreparedStatement ps = conn.prepareStatement(addRecordQuery)) {
+        
+
+        System.out.println(tr.getId());
+        System.out.println(tr.getUserId());
+        System.out.println(tr.getAmount());
+        System.out.println(tr.getType().name());
+        System.out.println(tr.getDate());
+        System.out.println(tr.getNote());
 
         ps.setString(1, tr.getId());
         ps.setString(2, tr.getUserId());
