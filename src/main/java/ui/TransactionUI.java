@@ -13,6 +13,7 @@ public class TransactionUI {
         double amt = sc.nextInt();
         System.out.println("Press I for income and E for expense: ");
         char t = sc.next().charAt(0);
+        sc.nextLine();
         System.out.println("Enter a note (optional): ");
         String note = sc.nextLine();
         
