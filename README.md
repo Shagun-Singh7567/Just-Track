@@ -43,7 +43,7 @@ This experience of working with the different classes which enable file handling
 
 
 ### Connection to MySQL Database and using JDBC 
-To enable a proper user authentication system, I plan to expand my database using MySQL, which I'm curently learning to work with. For the meantime, there are placeholder methods that don't do much except handle passwords and work with user input, but this is going to be expanded on soon.
+To enable a proper user authentication system and enhance data storage to be better, I expanded my database using MySQL, which is through JDBC.
 
 ### Password handling
 As quoted by this amazing video (https://www.youtube.com/watch?v=8ZtInClXe1Q&t=146s) I found on password storing by Computerphile, one should ideally NEVER store passwords, which is a flaw I acknowledge in my app currently. However, intead of plain text storing, I plan on using an SHA-256 algorithm, which is handled by predefined classes in java to store the string as a byte array and then process it through 64 rounds of operations, finally producing a 256-bit hash. Currently, the plan is to use MessageDigest to hash the data securely to produce a 64-character irreversible fingerprint to store the password.
