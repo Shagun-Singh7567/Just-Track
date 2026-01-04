@@ -2,20 +2,25 @@
 Just Track - A simple budget tracker made in java, made to help you be more financially responsible
 
 ## Folder structure
+Please note: While this project is being refactored, a lot of the past structure is also maintained, just in case the old code is to be reused in some way. However, the below structure is the plan for the final packages, as the refactoring process is being worked on.
 - src
-    - auth
-        - AuthManager
-    - services
-        - Expense (Main calls this class when an expense is to be recorded)
-        - Income (Main calls this class when a source of income is to be recorded)
-        - Transaction (Main calls this class when a Transaction is to be recorded)
-    - utility
-        - DateManager
-        - TransactionHandler
-        - ExpenseHandler
-        - IncomeHandler
-        - ReceiptGenerator (Creates CSV file for data stored in ArrayList)
-    - Main
+    - main\java
+        - db
+            - DatabaseConnection.java (provides connection to SQL connection)
+        - dao
+            - TransactionDAO.java
+        - model
+            - Transaction.java
+            - TransactionType.java (enum to definite transaction types)
+        - service
+            - TransactionService.model
+        - MainApp.java
+        
+    
+## My experience refactoring code
+This is my first time working on a project which requires clear distinction between the several layers, for which I plan to refactor my original idea to a cleaner codebase which is easier to read and add to. Furthurmore, this will enable me to potentially upgrade the project into a full CRUD-based app using Spring boot later in my learning journey.
+
+I planned to refactor mainly since I saw it as a great opportunity to learn how to write better structured code, which would be comparitively easier to read
 
 
 ## What I learned through this project so far
@@ -38,10 +43,12 @@ This experience of working with the different classes which enable file handling
 
 
 ### Connection to MySQL Database and using JDBC 
-To enable a proper user authentication system, I plan to expand my database using MySQL, which I'm curently learning to work with. For the meantime, there are placeholder methods that don't do much except handle passwords and work with user input, but this is going to be expanded on soon.
+To enable a proper user authentication system and enhance data storage to be better, I expanded my database using MySQL, which is through JDBC.
 
 ### Password handling
 As quoted by this amazing video (https://www.youtube.com/watch?v=8ZtInClXe1Q&t=146s) I found on password storing by Computerphile, one should ideally NEVER store passwords, which is a flaw I acknowledge in my app currently. However, intead of plain text storing, I plan on using an SHA-256 algorithm, which is handled by predefined classes in java to store the string as a byte array and then process it through 64 rounds of operations, finally producing a 256-bit hash. Currently, the plan is to use MessageDigest to hash the data securely to produce a 64-character irreversible fingerprint to store the password.
 
 ### User Authentication
 I also wish to implement a basic user authentication system using basic classes to allow multiple users to create multiple accounts on the same device.
+
+ 
