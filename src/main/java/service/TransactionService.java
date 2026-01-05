@@ -9,7 +9,7 @@ import model.Transaction;
 import model.TransactionType;
 
 public class TransactionService {
-    public static void add(String id, String uId, double amt, char t, String note)
+    public static void add(String uId, double amt, char t, String note)
     {
         if(amt < 0)
         {
@@ -26,7 +26,7 @@ public class TransactionService {
         Timestamp ts = new Timestamp(System.currentTimeMillis());
 
 
-        Transaction tr = new Transaction(id, uId, amt, type, ts, note);
+        Transaction tr = new Transaction(uId, amt, type, ts, note);
         try {
             TransactionDAO.createTable();
             System.out.println("Table created");

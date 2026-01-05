@@ -17,7 +17,7 @@ public class TransactionUI {
         System.out.println("Enter a note (optional): ");
         String note = sc.nextLine();
         
-        TransactionService.add("a","shagun",amt,t,note);
+        TransactionService.add("shagun",amt,t,note);
 
     }
 }
