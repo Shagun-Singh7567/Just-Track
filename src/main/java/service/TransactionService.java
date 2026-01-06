@@ -36,4 +36,13 @@ public class TransactionService {
             System.out.println("An error ocurred while saving your data");
         }
     }
+
+    public static void read()
+    {
+        try {
+            TransactionDAO.read();
+        } catch (SQLException e) {
+            System.out.println("An error ocurred while reading your data");
+        }
+    }
 }
