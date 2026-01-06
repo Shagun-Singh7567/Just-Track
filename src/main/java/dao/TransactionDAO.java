@@ -32,4 +32,23 @@ public class TransactionDAO {
         ps.executeUpdate();
    }
     }
+
+    public static void read() throws SQLException
+    {
+        String readRecordQuery = "select amt, type, transaction_date, note from TRANSACTIONS";
+        try (Connection conn = DatabaseConnection.getConnection();
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery(readRecordQuery)) {
+
+        System.out.println("Amount\t\tType\t\tDate\t\tNote");
+          while (rs.next()) {
+              double amt = rs.getDouble("amt");
+              String type = rs.getString("type");
+              Timestamp date = rs.getTimestamp("transaction_date");
+              String note = rs.getString("note");
+
+              System.out.println(amt + "\t\t" + type + "\t\t" + date + "\t\t" + note);
+            }
+        }
+    }
 }
