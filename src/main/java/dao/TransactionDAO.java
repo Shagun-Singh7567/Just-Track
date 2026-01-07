@@ -40,7 +40,7 @@ public class TransactionDAO {
         Statement stmt = conn.createStatement();
         ResultSet rs = stmt.executeQuery(readRecordQuery)) {
 
-        System.out.println("Amount\t\tType\t\tDate\t\tNote");
+        System.out.println("Amount\t\tType\t\tDate\t\t\t\tNote");
           while (rs.next()) {
               double amt = rs.getDouble("amt");
               String type = rs.getString("type");
