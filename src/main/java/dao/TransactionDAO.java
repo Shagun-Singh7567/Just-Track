@@ -8,7 +8,7 @@ import model.Transaction;
 public class TransactionDAO {
     public static void createTable() throws SQLException
     {
-        String createTableQuery = "create table if not exists TRANSACTIONS (id char(36) primary key, user_id varchar(100) not null, amt decimal(10,2) not null, type enum('INCOME', 'EXPENSE') not null, transaction_date timestamp not null, note varchar(500))";
+        String createTableQuery = "create table if not exists TRANSACTIONS (id char(128) primary key, user_id varchar(100) not null, amt decimal(10,2) not null, type enum('INCOME', 'EXPENSE') not null, transaction_date timestamp not null, note varchar(500))";
         try (Connection conn = DatabaseConnection.getConnection();
          Statement st = conn.createStatement()) {
         st.execute(createTableQuery);
@@ -22,14 +22,6 @@ public class TransactionDAO {
         try (Connection conn = DatabaseConnection.getConnection();
         PreparedStatement ps = conn.prepareStatement(addRecordQuery)) {
         
-
-        System.out.println(tr.getId());
-        System.out.println(tr.getUserId());
-        System.out.println(tr.getAmount());
-        System.out.println(tr.getType().name());
-        System.out.println(tr.getDate());
-        System.out.println(tr.getNote());
-
         ps.setString(1, tr.getId());
         ps.setString(2, tr.getUserId());
         ps.setDouble(3, tr.getAmount());
@@ -39,5 +31,24 @@ public class TransactionDAO {
 
         ps.executeUpdate();
    }
+    }
+
+    public static void read() throws SQLException
+    {
+        String readRecordQuery = "select amt, type, transaction_date, note from TRANSACTIONS";
+        try (Connection conn = DatabaseConnection.getConnection();
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery(readRecordQuery)) {
+
+        System.out.println("Amount\t\tType\t\tDate\t\t\t\tNote");
+          while (rs.next()) {
+              double amt = rs.getDouble("amt");
+              String type = rs.getString("type");
+              Timestamp date = rs.getTimestamp("transaction_date");
+              String note = rs.getString("note");
+
+              System.out.println(amt + "\t\t" + type + "\t\t" + date + "\t\t" + note);
+            }
+        }
     }
 }

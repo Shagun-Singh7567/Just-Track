@@ -5,7 +5,7 @@ import java.util.Scanner;
 import service.TransactionService;
 
 public class TransactionUI {
-    public static void main(String args[])
+    public static void add()
     {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter your transaction details: ");
@@ -17,7 +17,12 @@ public class TransactionUI {
         System.out.println("Enter a note (optional): ");
         String note = sc.nextLine();
         
-        TransactionService.add("a","shagun",amt,t,note);
+        TransactionService.add("shagun",amt,t,note);
+        sc.close();
+    }
 
+    public static void read()
+    {
+        TransactionService.read();
     }
 }

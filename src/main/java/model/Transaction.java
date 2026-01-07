@@ -1,19 +1,19 @@
 package model;
 
 import java.sql.Timestamp;
-import java.util.Date;
+import java.util.UUID;
 
 public class Transaction {
-    private String id = "";
+    private String id = UUID.randomUUID().toString();
     private String userId = "";
     private double amt = 0.0;
     private TransactionType type;
     private Timestamp date;
     private String note = "";
+    
 
-    public Transaction(String id, String userId, double amt, TransactionType type, Timestamp date, String note)
+    public Transaction(String userId, double amt, TransactionType type, Timestamp date, String note)
     {
-        this.id = id;
         this.userId = userId;
         this.amt = amt;
         this.type = type;
@@ -22,9 +22,8 @@ public class Transaction {
     }
 
     // Overloaded constructor for when object is created at the time of user input
-    public Transaction(String id, double amt, TransactionType type, Timestamp date, String note)
+    public Transaction(double amt, TransactionType type, Timestamp date, String note)
     {
-        this.id = id;
         this.amt = amt;
         this.type = type;
         this.date = date;
