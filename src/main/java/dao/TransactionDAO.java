@@ -51,4 +51,19 @@ public class TransactionDAO {
             }
         }
     }
+
+    public static void update(String id, double amt, String type, Timestamp date, String note) throws SQLException
+    {
+        String updateRecordQuery = "update TRANSACTIONS set amt = ?, type = ?, transaction_date = ?, note = ? where id = "+id;
+        try (Connection conn = DatabaseConnection.getConnection();
+        PreparedStatement ps = conn.prepareStatement(updateRecordQuery)) {
+        
+        ps.setDouble(1, amt);
+        ps.setString(2, type);
+        ps.setTimestamp(3, date);
+        ps.setString(4, note);
+
+        ps.executeUpdate();
+    }
+}
 }
