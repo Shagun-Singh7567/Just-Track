@@ -45,4 +45,13 @@ public class TransactionService {
             System.out.println("An error ocurred while reading your data");
         }
     }
+
+    public void update(String i)
+    {
+        try {
+            TransactionDAO.update(i);
+        } catch (SQLException e) {
+            System.out.println("An error ocurred while reading your data");
+        }
+    }
 }
