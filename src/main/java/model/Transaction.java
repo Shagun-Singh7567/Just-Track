@@ -1,10 +1,8 @@
 package model;
 
 import java.sql.Timestamp;
-import java.util.UUID;
 
 public class Transaction {
-    private String id = UUID.randomUUID().toString();
     private String userId = "";
     private double amt = 0.0;
     private TransactionType type;
@@ -31,15 +29,6 @@ public class Transaction {
     }
 
 
-    public String getId()
-    {
-        return id;
-    }
-
-    public void setId(String Id)
-    {
-        id = Id;
-    }
 
     public String getUserId()
     {
@@ -90,7 +79,5 @@ public class Transaction {
     {
         note = Note;
     }
-
-
 
 }

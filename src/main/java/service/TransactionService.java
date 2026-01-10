@@ -33,6 +33,7 @@ public class TransactionService {
             TransactionDAO.add(tr);
             System.out.println("Transaction saved");
         } catch (SQLException e) {
+            e.printStackTrace();
             System.out.println("An error ocurred while saving your data");
         }
     }
@@ -40,18 +41,23 @@ public class TransactionService {
     public static void read()
     {
         try {
+            TransactionDAO.createTable();
+            System.out.println("Table created");
             TransactionDAO.read();
         } catch (SQLException e) {
+            e.printStackTrace();
             System.out.println("An error ocurred while reading your data");
         }
     }
 
-    public void update(String i)
+    public static void update(String i)
     {
         try {
+            TransactionDAO.createTable();
+            System.out.println("Table created");
             TransactionDAO.update(i);
         } catch (SQLException e) {
-            System.out.println("An error ocurred while reading your data");
+            System.out.println("An error ocurred while updating your data");
         }
     }
 }
