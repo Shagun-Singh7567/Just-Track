@@ -25,4 +25,19 @@ public class TransactionUI {
     {
         TransactionService.read();
     }
+
+    public static void update()
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Please enter the serial number of the transaction");
+        String i = sc.next();
+        try{
+            TransactionService.update(i);
+        }
+        catch(Exception e)
+        {
+            System.out.println("Perhaps ypur id was invalid - please try again");
+        }
+        sc.close();
+    }
 }
