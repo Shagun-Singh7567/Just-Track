@@ -3,6 +3,7 @@ package service;
 import java.sql.SQLException;
 
 import java.sql.Timestamp;
+import java.util.Scanner;
 
 import dao.TransactionDAO;
 import model.Transaction;
@@ -51,13 +52,22 @@ public class TransactionService {
     }
 
     public static void update(String i)
-    {
+    {        
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter new amount");
+        double amt = sc.nextDouble();
+        sc.nextLine();
+        System.out.println("Enter a note");
+        String note = sc.nextLine();
+
         try {
             TransactionDAO.createTable();
             System.out.println("Table created");
-            TransactionDAO.update(i);
+            TransactionDAO.update(i, amt, note);
         } catch (SQLException e) {
             System.out.println("An error ocurred while updating your data");
+            e.printStackTrace();
         }
+        sc.close();
     }
 }

@@ -1,7 +1,7 @@
 package dao;
 
 import java.sql.*;
-
+import java.util.Scanner;
 
 import db.DatabaseConnection;
 import model.Transaction;
@@ -55,38 +55,20 @@ public class TransactionDAO {
         }
     }
 
-    public static void update(String i) throws SQLException
+    public static void update(String i, double amt, String note) throws SQLException
     {
-        double amt = 0;
-        String type = "";
-        Timestamp date = new Timestamp(System.currentTimeMillis());
-        String note = "";
-
-        String updateRecordQuery = "update TRANSACTIONS set amt = ?, type = ?, transaction_date = ?, note = ? where serial_number = "+i;
+        String updateRecordQuery = "update TRANSACTIONS set amt = ?, note = ? where serial_number = "+i;
         try (Connection conn = DatabaseConnection.getConnection();
         PreparedStatement ps = conn.prepareStatement(updateRecordQuery)) {
-        
-        String readRecordQuery = "select amt, type, transaction_date, note from TRANSACTIONS where serial_number = "+i;
-        try (Statement stmt = conn.createStatement();
-        ResultSet rs = stmt.executeQuery(readRecordQuery)) {
-    
-        System.out.println("Amount\t\tType\t\tDate\t\t\t\tNote");
-            while (rs.next()) {
-                amt = rs.getDouble("amt");
-                type = rs.getString("type");
-                date = rs.getTimestamp("transaction_date");
-                note = rs.getString("note");
-    
-                System.out.println(amt + "\t\t" + type + "\t\t" + date + "\t\t" + note);
-                }
-            }
 
+        
         ps.setDouble(1, amt);
-        ps.setString(2, type);
-        ps.setTimestamp(3, date);
-        ps.setString(4, note);
+        ps.setString(2, note);
 
         ps.executeUpdate();
+
     }
+
+
 }
 }
