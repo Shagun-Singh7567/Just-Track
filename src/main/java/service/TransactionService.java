@@ -71,5 +71,16 @@ public class TransactionService {
         sc.close();
     }
 
-    
+    public static void delete(String i)
+    {
+        try {
+            TransactionDAO.createTable();
+            System.out.println("Table created");
+            TransactionDAO.delete(i);
+        } catch (SQLException e) {
+            System.out.println("An error ocurred while deleting your data");
+            e.printStackTrace();
+        } 
+    }
+
 }
