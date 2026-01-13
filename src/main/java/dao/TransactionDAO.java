@@ -67,8 +67,16 @@ public class TransactionDAO {
 
         ps.executeUpdate();
 
+        }
     }
 
-
-}
+    public static void delete(String i) throws SQLException
+    {
+        String deleteRecordQuery = "delete from TRANSACTIONS where serial_number = "+i;
+        try (Connection conn = DatabaseConnection.getConnection();
+        PreparedStatement ps = conn.prepareStatement(deleteRecordQuery))
+        {
+            ps.executeQuery();
+        }
+    }
 }
