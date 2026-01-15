@@ -6,7 +6,7 @@ public class Main {
     public static void main(String args[]) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Welcome to JustTrack!");
-        System.out.println("1 to add a transaction \n2 to read all transactions\n3 to update a transaction");
+        System.out.println("1 to add a transaction \n2 to read all transactions\n3 to update a transaction\n4 to delete a transaction");
         char ch = sc.next().charAt(0);
         switch(ch)
         {
@@ -20,6 +20,10 @@ public class Main {
 
             case '3':
             TransactionUI.update();
+            break;
+
+            case '4':
+            TransactionUI.delete();
         }
     }
 }

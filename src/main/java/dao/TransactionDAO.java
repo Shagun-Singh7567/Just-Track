@@ -76,7 +76,7 @@ public class TransactionDAO {
         try (Connection conn = DatabaseConnection.getConnection();
         PreparedStatement ps = conn.prepareStatement(deleteRecordQuery))
         {
-            ps.executeQuery();
+            ps.executeUpdate();
         }
     }
 }
