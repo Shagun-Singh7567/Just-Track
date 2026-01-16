@@ -9,15 +9,21 @@ Please note: While this project is being refactored, a lot of the past structure
             - DatabaseConnection.java (provides connection to SQL connection)
         - dao
             - TransactionDAO.java
+            - UserDAO. java
         - model
             - Transaction.java
+            - User.java
             - TransactionType.java (enum to definite transaction types)
         - service
-            - TransactionService.model
-        - MainApp.java
+            - TransactionService.java
+            - UserService.java
+        - ui
+            - TransactionUI.java
+            - UserUI. java
+        - Main.java
 
 ## Features
-This budget tracker works as a basic CRUD application (Create, Read, Update, Delete) for your transactions, which are stored in a database for proper retrieval. These are properly assigned their own methods in each later to enable a modular approach to the code. <br>
+This budget tracker works as a basac CRUD application (Create, Read, Update, Delete) for your transactions, which are stored in a database for proper retrieval. These are properly assigned their own methods in each later to enable a modular approach to the code. <br>
 Transactions done by a user can be evaluated in the following ways:
 <br>
 - They can be uploaded to the database (Create) 
