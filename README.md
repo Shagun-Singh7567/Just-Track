@@ -15,7 +15,16 @@ Please note: While this project is being refactored, a lot of the past structure
         - service
             - TransactionService.model
         - MainApp.java
-        
+
+## Features
+This budget tracker works as a basic CRUD application (Create, Read, Update, Delete) for your transactions, which are stored in a database for proper retrieval. These are properly assigned their own methods in each later to enable a modular approach to the code. <br>
+Transactions done by a user can be evaluated in the following ways:
+<br>
+- They can be uploaded to the database (Create) 
+- They can be read from the database and displayed to the user. (Read) 
+- They can be updated by referring to their id (Update) 
+- They can be deleted by referring to the same aforementioned id (Delete) 
+
     
 ## My experience refactoring code
 This is my first time working on a project which requires clear distinction between the several layers, for which I plan to refactor my original idea to a cleaner codebase which is easier to read and add to. Furthurmore, this will enable me to potentially upgrade the project into a full CRUD-based app using Spring boot later in my learning journey.
