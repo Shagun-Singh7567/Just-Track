@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import ui.TransactionUI;
@@ -5,8 +6,11 @@ import ui.TransactionUI;
 public class Main {
     public static void main(String args[]) {
         Scanner sc = new Scanner(System.in);
+        int f = 1;
+        while(f != 0)
+        {
         System.out.println("Welcome to JustTrack!");
-        System.out.println("1 to add a transaction \n2 to read all transactions\n3 to update a transaction");
+        System.out.println("1 to add a transaction \n2 to read all transactions\n3 to update a transaction\n4 to delete a transaction");
         char ch = sc.next().charAt(0);
         switch(ch)
         {
@@ -20,6 +24,41 @@ public class Main {
 
             case '3':
             TransactionUI.update();
+            break;
+
+            case '4':
+            TransactionUI.delete();
+            break;
+
+            default:
+            System.out.println("Sorry, the value you have entered seems to be inappropriate.\nPress 1 to try again, and 2 to exit");
+            try
+            {
+            int terminateChoice = sc.nextInt();
+            if(terminateChoice == 1)
+            f = 1;
+            else if(terminateChoice == 2)
+            f = 0;
+            else
+            System.out.println("That's not a choice!");
+            }
+            catch(InputMismatchException e)
+            {
+                System.out.println("That wasn't an integer! Please try again");
+                f = 1;
+            }
         }
+        System.out.println("Do you want to continue? Press 1 for yes, 2 for no");
+            System.out.println("Enter your choice: ");
+            int continueChoice = sc.nextInt();
+            if(continueChoice == 2)
+            f = 0;
+            else if(continueChoice == 1)
+            f = 1;
+            else
+            System.out.println("That's not a choice!");
+       
+    }
+    System.out.println("Thank you for using JustTrack!\nYou are now exiting the application...");
     }
 }

@@ -40,4 +40,20 @@ public class TransactionUI {
         }
         sc.close();
     }
+
+    public static void delete()
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Please enter the serial number of the transaction");
+        String i = sc.next();
+        try{
+            TransactionService.delete(i);
+        }
+        catch(Exception e)
+        {
+            System.out.println("Perhaps ypur id was invalid - please try again");
+        }
+        sc.close();
+    }
+
 }
