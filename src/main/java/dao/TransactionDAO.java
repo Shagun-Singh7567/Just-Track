@@ -1,7 +1,6 @@
 package dao;
 
 import java.sql.*;
-import java.util.Scanner;
 
 import db.DatabaseConnection;
 import model.Transaction;
