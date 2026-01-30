@@ -48,15 +48,16 @@ public class Main {
                 f = 1;
             }
         }
-        System.out.println("Do you want to continue? Press 1 for yes, 2 for no");
+        int continueChoice;
+        System.out.println("Do you want to continue? Press 0 if not, otherwise continue");
             System.out.println("Enter your choice: ");
-            int continueChoice = sc.nextInt();
-            if(continueChoice == 2)
+            if(sc.hasNextInt())
+            {
+            continueChoice = sc.nextInt();
+             if(continueChoice == 0)
             f = 0;
-            else if(continueChoice == 1)
-            f = 1;
-            else
-            System.out.println("That's not a choice!");
+            }
+            
        
     }
     System.out.println("Thank you for using JustTrack!\nYou are now exiting the application...");

@@ -18,7 +18,6 @@ public class TransactionUI {
         String note = sc.nextLine();
         
         TransactionService.add("shagun",amt,t,note);
-        sc.close();
     }
 
     public static void read()
@@ -38,7 +37,6 @@ public class TransactionUI {
         {
             System.out.println("Perhaps ypur id was invalid - please try again");
         }
-        sc.close();
     }
 
     public static void delete()
@@ -53,7 +51,6 @@ public class TransactionUI {
         {
             System.out.println("Perhaps ypur id was invalid - please try again");
         }
-        sc.close();
     }
 
 }

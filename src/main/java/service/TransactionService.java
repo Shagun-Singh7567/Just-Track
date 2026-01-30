@@ -68,7 +68,6 @@ public class TransactionService {
             System.out.println("An error ocurred while updating your data");
             e.printStackTrace();
         }
-        sc.close();
     }
 
     public static void delete(String i)
