@@ -49,7 +49,7 @@ public class Main {
             }
         }
         int continueChoice;
-        System.out.println("Do you want to continue? Press 0 if not, otherwise continue");
+        System.out.println("Do you want to continue? Press 0 if not, otherwise press any other numberk");
             System.out.println("Enter your choice: ");
             if(sc.hasNextInt())
             {
